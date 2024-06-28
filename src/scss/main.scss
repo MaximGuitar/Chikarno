@@ -1,0 +1,46 @@
+@import 'includes/variables';
+@import 'includes/mixins';
+@import 'includes/general';
+@import 'includes/fonts';
+
+
+// styles
+@import 'components/common/header';
+@import 'components/common/footer';
+@import 'components/common/modal';
+@import 'components/common/basket-modal';
+@import 'components/common/custom-scrollbar';
+@import 'components/common/cart-item';
+@import 'components/common/count-input';
+@import "./components/common/breadcrumbs.scss";
+@import "./components/common/page-container.scss";
+@import "./components/common/category-section.scss";
+@import "./components/common/post-card.scss";
+@import "./components/common/categories-list.scss";
+@import "./components/common/category-card.scss";
+@import "./components/common/form-radio.scss";
+@import "./components/common/form-check.scss";
+@import "./components/common/regular-modal.scss";
+@import "./components/common/modal-book-table.scss";
+
+@import "./text-page/content-text.scss";
+@import "./text-page/text-page.scss";
+
+
+
+//content-blocks
+@import 'components/content-blocks/main-banner';
+@import 'components/content-blocks/main-url';
+@import 'components/content-blocks/calendar';
+@import 'components/content-blocks/slider-block';
+@import 'components/content-blocks/about-us';
+@import 'components/content-blocks/advantages';
+@import 'components/content-blocks/about-person';
+@import 'components/content-blocks/block-photos';
+@import "./components/content-blocks/product-section.scss";
+@import "./components/content-blocks/other-products-section.scss";
+@import "./components/content-blocks/reviews-section.scss";
+@import "./components/content-blocks/loyalty-program.scss";
+@import "./components/content-blocks/menu-section.scss";
+@import "./components/content-blocks/page-head.scss";
+@import "./components/content-blocks/order.scss";

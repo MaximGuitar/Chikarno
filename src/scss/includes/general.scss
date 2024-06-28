@@ -1,0 +1,463 @@
+/*	Reset
+---------------------------------------*/
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+*:focus,
+*:focus * {
+	box-shadow: none !important;
+	outline: none !important;
+}
+
+.custom-control-input:focus~.custom-control-label::before {
+	box-shadow: none !important;
+}
+
+html {
+	min-height: 100%;
+	height: 100%;
+	scroll-behavior: smooth;
+
+	&.opened {
+		overflow: hidden;
+		position: fixed;
+	}
+}
+
+body {
+	min-width: 320px;
+	height: 100%;
+	margin: 0;
+	background: $main-color;
+	font-family: "centuryGothic", sans-serif;
+
+	&.opened {
+		overflow: hidden;
+		height: 100%;
+	}
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+	flex: 1 0 auto;
+	background-position: center top;
+	width: 100%;
+}
+
+ol,
+ul {
+	padding: 0;
+	margin: 0;
+}
+
+li {
+	list-style-type: none;
+}
+
+button{
+	cursor: pointer;
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+h1,
+h2,
+h3,
+h4,
+p {
+	line-height: normal;
+	margin: 0;
+	padding: 0;
+}
+
+a:focus,
+button:focus,
+input:focus,
+textarea:focus {
+	outline: 0;
+	text-decoration: none;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+svg {
+	width: 100%;
+	height: 100%;
+}
+
+img, iframe{
+	display: block;
+}
+
+// General styles
+
+.container {
+	width: clampFluid(1650);
+	max-width: 1650px;
+	margin: 0 auto;
+	padding: 0;
+
+	@media (max-width: 1280px) {
+		width: 100%;
+		padding: 0 clampFluid(15, 30, 375, 1280);
+	}
+}
+
+.btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	border: none;
+	transition: $tr-f;
+	border-radius: 50px;
+	padding: clampFluid(17) clampFluid(40) clampFluid(19);
+	background: $green;
+
+	p {
+		color: $color-text;
+		@include h6;
+	}
+
+	&--dark {
+		background: $main-color;
+	}
+
+	@include hover {
+		background: $red;
+	}
+	&--transperent{
+		border: 1px solid $green;
+		background: transparent;
+		p {
+			@include h6;
+			color: $green;		
+		}
+		@include hover{
+			p{
+				color: white;
+			}
+			background: $green;
+		}
+	}
+}
+
+.only-desktop {
+	display: block;
+
+	@media (max-width: 1280px) {
+		display: none;
+	}
+}
+
+.only-mobile {
+	display: none;
+
+	@media (max-width: 1280px) {
+		display: block;
+	}
+}
+
+.input {
+	width: 100%;
+	height: clampFluid(60);
+	border: 1px solid #11111140;
+	padding-left: 25px;
+	padding-right: 25px;
+	@include p1;
+	color: $main-color;
+
+	&::placeholder {
+		@include p1;
+		color: #606060;
+	}
+
+	@media (max-width: 600px) {
+		width: 100%;
+	}
+
+	&.error{
+		border-color: red;
+	}
+}
+
+.input-name{
+	margin-bottom: clampFluid(10);
+	@include p3;
+}
+
+.area {
+	height: clampFluid(101);
+	padding-top: 16px;
+	resize: none;
+}
+
+.ymaps3x0--map-copyrights_bottom {
+	display: none !important;
+}
+
+.container-1920 {
+	max-width: 1920px;
+	margin: 0 auto;
+	width: 100%;
+	padding: 0;
+	position: relative;
+}
+
+.circle-btn {
+	cursor: pointer;
+
+	width: clampFluid(150, 300);
+	height: clampFluid(150, 300);
+	background: $green;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	transition: $tr-f;
+	justify-content: center;
+
+	p {
+		text-align: center;
+		@include h2B;
+		max-width: 80%;
+		color: white;
+	}
+
+	@include hover {
+		background: $red;
+	}
+}
+
+.pink-line {
+	height: clampFluid(47, 94, 320, 1920);
+	width: 100%;
+	background: $red;
+
+	z-index: 1;
+	position: relative;
+
+	white-space: nowrap;
+	overflow: hidden;
+
+
+
+	&__content-wrapper {
+		display: inline-block;
+		padding-left: clampFluid(15, 40, 320, 1920);
+		animation: scroll 20s infinite linear;
+		height: 100%;
+	}
+
+
+	&__content {
+		display: flex;
+		align-items: center;
+		gap: clampFluid(15, 40, 320, 1920);
+		height: 100%;
+		p {
+			@include h5;
+			color: white;
+			&:nth-child(4n) {
+				color: $main-color;
+			}
+		}
+	
+		
+	}
+
+	.cherry {
+		width: clampFluid(22, 45, 320, 1920);
+		aspect-ratio: 45/54;
+	}
+
+	.heart {
+		width: clampFluid(16, 32, 320, 1920);
+		aspect-ratio: 32/46;
+	}
+
+	.pepper {
+		width: clampFluid(22, 45, 320, 1920);
+		aspect-ratio: 45/54;
+	}
+}
+
+
+@keyframes scroll {
+	0% {
+		transform: translateX(0);
+	}
+
+	100% {
+		transform: translateX(-100%)
+	}
+}
+
+.highlite {
+	filter: blur(200px);
+	position: absolute;
+	border-radius: 50%;
+	z-index: -1;
+	pointer-events: none;
+	&--red {
+		background: $red;
+	}
+
+	&--green {
+		background: $green;
+	}
+}
+
+
+.img-container {
+
+
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+}
+
+.swiper-arrow 
+{
+	border-radius: 50%;
+	width: clampFluid(30, 80, 320, 1920);
+	height: clampFluid(30, 80, 320, 1920);
+	background: $green;
+	transition: $tr-f;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&--left {
+		.fat-arrow {
+			scale: -1;
+		}
+	}
+
+	.fat-arrow {
+		width: clampFluid(18, 50);
+		height: clampFluid(10, 28);
+	}
+
+	@include hover {
+		background: $red;
+	}
+	&--empty{
+		border: 1px solid $green;
+		background: transparent;
+		&:hover{
+			background: transparent;
+			border-color: $red;
+		}
+	}
+}
+.green-leo-pattern{
+	background-image: url(../images/static-leopard.svg);
+	background-repeat: repeat;
+}
+
+.custom-map-marker{
+	width: clampFluid(39);
+	height: clampFluid(54);
+	>svg{
+		transform: translate(-50%, -100%);
+	}
+}
+
+.link-cover {
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+}
+
+.page-204{
+	.breadcrumbs{
+		margin-bottom: clampFluid(55);
+	}
+}
+
+.page-220{
+	@media (max-width: 600px){
+		.breadcrumbs{
+			margin-bottom: 30px;
+		}
+	}
+}
+
+.page-138{
+	position: relative;
+	.breadcrumbs{
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+	}
+	.footer__top-content-wrapper{
+		padding-top: 0;
+	}
+
+	@media (max-width: 1000px){
+		.breadcrumbs{
+			position: static;
+			margin-bottom: 30px;
+		}			
+	}
+
+	@media (min-width: 1000px) and (max-width: 1280px){
+		.footer__top-content-wrapper{
+			padding-top: 70px;
+		}
+	}
+}
+
+.page-206{
+	.paint{
+		width: clampFluid(250);
+		position: absolute;
+		top: clampFluid(-70);
+		right: clampFluid(-70);
+		aspect-ratio: 250/600;
+	}
+
+	@media (max-width: 768px){
+		.paint{
+			display: none;
+		}
+	}
+}
+
+.page-214{
+	position: relative;
+	.breadcrumbs{
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+	}
+	
+	@media (max-width: 1000px){
+		.breadcrumbs{
+			position: static;
+			margin-bottom: 30px;
+		}			
+	}
+}

@@ -1,0 +1,30 @@
+.form-radio{
+    display: flex;
+    align-items: center;
+    @include p1;
+    color: $main-color;
+    cursor: pointer;
+    input{
+        display: none;
+        &:checked + .form-radio-input{
+            &::after{
+                content: "";
+                width: clampFluid(10);
+                height: clampFluid(10);
+                border-radius: 50%;
+                background: $green;
+            }
+        }
+    }
+    &-input{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 auto;
+        width: clampFluid(16);
+        height: clampFluid(16);
+        margin-right: clampFluid(7);
+        border: 1px solid $green;
+        border-radius: 50%;   
+    }
+}

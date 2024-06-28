@@ -1,0 +1,469 @@
+.header {
+    position: relative;
+    z-index: 11;
+    box-shadow: 15px 15px 50px 25px #0000000D;
+    height: clampFluid(98);
+    top: 0;
+    position: sticky;
+    background: white;
+
+    .container {
+        height: 100%;
+    }
+
+    &__menu-list-item-wrapper {
+        position: relative;
+
+        @include hover {
+            .header__submenu {
+                opacity: 1;
+                pointer-events: all;
+            }
+        }
+    }
+
+    @media (max-width: 1280px) {
+        height: clampFluid(50, 65, 320, 1280);
+    }
+
+    &__wrapper {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__logo {
+        width: clampFluid(200);
+        height: clampFluid(58);
+        fill: $main-color;
+
+        @media (max-width: 425px) {
+            display: none;
+        }
+
+    }
+
+    &__mob-logo {
+        display: none;
+        width: 30px;
+        height: 30px;
+
+        @media (max-width: 425px) {
+            display: block;
+        }
+
+    }
+
+    &__menu {
+        display: flex;
+    }
+
+    &__submenu {
+        transition: $tr-f;
+        left: -14px;
+        z-index: 10;
+        top: 25px;
+        position: absolute;
+        // display: none;
+        opacity: 0;
+        padding: clampFluid(15) clampFluid(21) clampFluid(15) clampFluid(15);
+        background: white;
+        pointer-events: none;
+
+        ul {
+
+            li {
+                a {
+                    @include p3;
+                    transition: $tr-f;
+                    color: $main-color;
+
+                    @include hover {
+                        color: $green;
+                    }
+                }
+
+                margin-bottom: clampFluid(10);
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        &:hover {
+            opacity: 1;
+            pointer-events: all;
+        }
+    }
+
+    &__menu-list {
+        margin-right: clampFluid(30);
+        display: flex;
+        align-items: center;
+        gap: clampFluid(30);
+
+        @media (max-width: 1280px) {
+            display: none;
+        }
+
+    }
+
+    &__menu-list-item {
+        height: fit-content;
+        display: flex;
+        align-items: center;
+        transition: $tr-f;
+
+        a {
+            @include p1;
+            color: $main-color;
+        }
+
+        svg {
+            margin-left: clampFluid(5);
+            fill: #1D273A;
+            width: clampFluid(16);
+            height: clampFluid(8);
+        }
+
+        @include hover {
+            a {
+                color: $green;
+            }
+        }
+    }
+
+    &__menu-open {
+        cursor: pointer;
+        width: clampFluid(40);
+        height: clampFluid(40);
+
+        @media (min-width: 1281px){
+            display: none;
+        }
+
+        @media (max-width: 1280px) {
+            margin-left: 10px;
+            height: 30px;
+            width: 30px;
+        }
+    }
+
+    &__info {
+        display: flex;
+        align-items: center;
+    }
+
+    &__info-btn {
+        margin-right: clampFluid(12);
+        transition: $tr-f;
+        padding: clampFluid(10) clampFluid(25);
+
+        p {
+            @include h6;
+        }
+
+        @include hover {
+            background: $red;
+        }
+
+        @media (max-width: 700px) {
+            display: none;
+        }
+
+    }
+
+    &__tg {
+        width: clampFluid(40);
+        height: clampFluid(40);
+        margin-right: clampFluid(12);
+
+        img {
+            width: 100%;
+        }
+
+
+        @media (max-width: 1280px) {
+            width: 30px;
+            height: 30px;
+        }
+
+        @media (max-width: 700px) {
+            margin-right: 0;
+        }
+    }
+
+    &__mobile-menu-wrapper {
+        position: absolute;
+        transform: translateX(100%);
+        transition: transform $tr;
+        background: white;
+        width: 100%;
+        height: 100%;
+
+        &.active {
+            transform: translateX(0);
+        }
+
+    }
+
+    &__mobile-menu-desc {
+        padding-left: clampFluid(276);
+        padding-top: clampFluid(86);
+        padding-bottom: clampFluid(134);
+
+        ul {
+            columns: 2;
+
+            li {
+                margin-bottom: clampFluid(30);
+                max-width: 300px;
+
+                a {
+                    @include h1;
+                    color: $main-color;
+                }
+
+                @include hover {
+                    a {
+                        color: $green
+                    }
+                }
+
+            }
+        }
+
+        @media (max-width: 1280px) {
+            display: none;
+        }
+    }
+
+    &__menu-wrapper {
+        overflow: hidden;
+        position: sticky;
+
+        &.active {
+            height: 100vh;
+        }
+    }
+
+    .mobile-basket-btn {
+        width: 30px;
+        height: 30px;
+        margin-left: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: $main-color;
+        border-radius: 50%;
+        position: relative;
+
+        .count{
+            width: 17px;
+            height: 17px;
+            position: absolute;
+            bottom: -4px;
+            right: -4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @include p2;
+            background: $red;
+            border-radius: 50%;
+        }
+
+        .icon {
+            width: 15px;
+            height: 15px;
+            fill: #fff;
+        }
+
+        @media (min-width: 701px) {
+            display: none;
+        }
+    }
+}
+
+.work-time {
+    margin-right: clampFluid(20);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @media (max-width: 425px) {
+        margin-right: clampFluid(10, 30, 320, 425);
+    }
+
+    &__number {
+        @include h6;
+        color: $main-color;
+        margin-bottom: clampFluid(8);
+        transition: $tr-f;
+
+        @include hover {
+            color: $green;
+        }
+    }
+
+    &__cur {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__cur-indicator {
+        background: #2BFF08;
+        border-radius: 50%;
+        width: clampFluid(8);
+        height: clampFluid(8);
+        margin-right: clampFluid(5);
+
+        &--red {
+            background: red;
+        }
+    }
+
+    &__text {
+        @include p3;
+        color: $main-color;
+        margin-right: clampFluid(5);
+    }
+
+    &__showMore {
+        fill: transparent;
+        width: clampFluid(12);
+        height: clampFluid(6);
+        fill: currentColor;
+    }
+
+    &__cur-wrapper {
+        cursor: pointer;
+        position: relative;
+
+        .header__submenu {
+            left: clampFluid(10, 30);
+            top: clampFluid(20, 15);
+        }
+
+
+    }
+
+
+
+    &__list {
+        transition: $tr-f;
+
+        &.active {
+
+            opacity: 1;
+            pointer-events: all;
+        }
+    }
+
+    &__list-item {
+        display: grid;
+        grid-template-columns: 20px auto;
+        gap: clampFluid(5);
+
+        p {
+            @include p3;
+            color: $main-color;
+        }
+    }
+
+    &__weekDay {}
+
+    &__openTime {
+        white-space: nowrap;
+    }
+
+}
+
+.basket-btn {
+    padding: clampFluid(11) clampFluid(20);
+
+    &__cart {
+        width: clampFluid(24);
+        height: clampFluid(24);
+        margin-right: clampFluid(10);
+        fill: white;
+    }
+
+    span {
+        @include h6;
+    }
+
+    .rouble {
+        @include p1;
+    }
+
+    @include hover {
+        background: $green;
+    }
+
+    @media (max-width: 700px) {
+        display: none;
+    }
+}
+
+.mobile-menu {
+    overflow: auto;
+    display: none;
+    padding-top: 20px;
+    padding-bottom: 70px;
+
+    .close-modal{
+        position: absolute;
+        top: clampFluid(30,15);
+        right: clampFluid(30,15);
+        padding: clampFluid(8);
+        z-index: 2;
+        cursor: pointer;
+        border: 0;
+        background: $red;
+        border-radius: 50%;
+        .icon {
+            display: block;
+            width: clampFluid(14,9);
+            height: clampFluid(14,9);
+            pointer-events: none;
+            fill: #fff;
+        }
+    }
+
+    @media (max-width: 1280px) {
+        display: block;
+    }
+
+    &__menu-list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    &__menu-list-item {
+        a {
+            @include h1;
+            color: $main-color;
+        }
+    }
+
+    &__submenu {
+        margin-top: clampFluid(20);
+
+        li {
+            margin-bottom: 10px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            a {
+                @include p1;
+                color: $main-color;
+            }
+        }
+    }
+}

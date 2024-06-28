@@ -1,0 +1,336 @@
+.footer {
+    position: relative;
+    z-index: 1;
+    &__top {
+        margin-left: clampFluid(135);
+        display: flex;
+        gap: clampFluid(30);
+        justify-content: space-between;
+
+        @media (max-width: 1000px) {
+            flex-direction: column-reverse;
+            margin-left: 0;
+            gap: 20px;
+        }
+
+        .title{
+            margin-bottom: clampFluid(30);
+            @include h1;
+        }
+    }
+
+    &__top-decor {
+        width: clampFluid(476);
+        height: clampFluid(468);
+        grid-column: 1/2;
+        margin-right: clampFluid(33);
+
+        @media (max-width: 1280px) {
+            display: none;
+        }
+    }
+
+    &__top-content-wrapper {
+        padding-top: clampFluid(42);
+
+        @media (max-width: 1000px) {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0 15px;
+        }
+    }
+
+    &__top-adress {
+        @include p1;
+        color: #FFFFFFA6;
+        margin-bottom: clampFluid(30);
+        line-height: 26px;
+    }
+
+
+
+    &__bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: clampFluid(20, 24);
+        padding-bottom: clampFluid(48, 24);
+
+        @media (max-width: 700px) {
+            flex-direction: column;
+            gap: 10px;
+            align-items: start;
+        }
+    }
+
+    &__bottom-text {
+        @include p2;
+        opacity: 0.75;
+    }
+
+    &__bottom-policy {
+        @include hover {
+            color: $green;
+        }
+    }
+
+    &__top-menu {
+        background: $green;
+        margin-top: clampFluid(19);
+        width: 100%;
+        grid-column: 1/3;
+        padding: clampFluid(60) clampFluid(135) clampFluid(22) clampFluid(60);
+
+        @media (max-width: 1000px) {
+            padding: 20px 15px;
+        }
+
+        ul {
+            columns: 3;
+            column-gap: 20px;
+
+            li {
+                max-width: 133px;
+                text-align: left;
+                margin-bottom: clampFluid(20);
+
+                a {
+                    transition: $tr-f;
+                    @include p1;
+
+                    @include hover {
+                        color: $main-color;
+                    }
+                }
+            }
+
+            @media (max-width: 1280px) {
+                columns: auto;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    }
+
+    &__tel {
+        @include h5;
+        display: block;
+        margin-bottom: clampFluid(20);
+        transition: $tr-f;
+
+        @include hover {
+            color: $green;
+        }
+
+        @media (max-width: 1000px) {
+            text-align: center;
+        }
+    }
+
+    &__top-work-time {
+        display: flex;
+        gap: clampFluid(14);
+        align-items: end;
+        margin-bottom: clampFluid(40);
+        cursor: pointer;
+
+        p {
+            @include p1;
+            color: #FFFFFFA6;
+        }
+
+        svg {
+            width: clampFluid(19);
+            height: clampFluid(9);
+            fill: rgba(255, 255, 255, 0.65);
+            margin-bottom: 7px;
+        }
+    }
+
+    &__top-info-wrapper {
+        display: grid;
+        grid-template-columns: auto clampFluid(286);
+        margin-top: clampFluid(121);
+
+        @media (max-width: 1280px) {
+            grid-template-columns: 1fr;
+            margin-top: 0;
+            justify-content: center;
+        }
+    }
+
+    &__top-wrapper{
+        background: #242424;
+    }
+
+    &__top-map {
+        width: clampFluid(945);
+        height: clampFluid(894);
+        background: #242424;
+
+        @media (max-width: 1000px) {
+            width: 100%;
+            height: 320px;
+
+            & * {
+                touch-action: auto
+            }
+        }
+    }
+
+    &__top-btn {
+        margin-bottom: clampFluid(40);
+        padding-top: 13px;
+        padding-bottom: 13px;
+    }
+
+    &__top-work-time-wrapper {
+        position: relative;
+
+        .header__submenu {
+            left: clampFluid(63, 125);
+            top: clampFluid(45, 63);
+
+            @media (max-width: 1281px) {
+                left: clampFluid(63, 125,320,1280);
+                top: clampFluid(45, 63,320,1280);
+            }
+        }
+    }
+}
+
+
+.footer-form-wrapper {
+    background: white;
+
+    &__dangerLine {
+        width: 100%;
+        height: clampFluid(71);
+    }
+
+    &__content {
+        padding-top: clampFluid(40, 88, 320, 1920);
+        padding-bottom: clampFluid(92, 116, 320, 1920);
+        display: flex;
+        justify-content: space-between;
+
+        @media (max-width: 700px) {
+            flex-direction: column;
+            padding-bottom: 40px;
+        }
+
+    }
+
+    &__texts {}
+
+    &__title {
+        @include h1;
+        margin-bottom: clampFluid(16, 32);
+        color: $main-color;
+    }
+
+    &__subtitle {
+        @include p1;
+        width: 100%;
+        max-width: 350px;
+        color: $main-color;
+        margin-bottom: clampFluid(20);
+    }
+}
+
+.footer-form {
+    display: grid;
+    grid-template-columns: repeat(2, clampFluid(390));
+    gap: clampFluid(15, 30);
+
+    &__submit {
+        display: block;
+        justify-content: center;
+
+    }
+
+    &__submit-btn {
+        width: 100%;
+        margin-bottom: 15px;
+        padding-top: 13px;
+        padding-bottom: 13px;
+    }
+
+    &__policy {
+        @include p2;
+        color: $grey;
+        text-align: center;
+        display: block;
+
+        @include hover {
+            span {
+                color: $green;
+            }
+        }
+    }
+
+    @media (max-width: 1025px) {
+        grid-template-columns: 100%;
+
+        .input{
+            &:nth-child(3){
+                grid-row: 3/4
+            }
+            &:nth-child(4){
+                grid-row: 2/3
+            }
+        }
+    }
+
+}
+
+.made-by {
+    display: flex;
+    align-items: end;
+    $this: &;
+    transition: $tr-f;
+
+    &__text {
+        @include p2;
+        color: #FFFFFFBF;
+        margin-right: 10px;
+    }
+
+    &__svg {
+        width: 95px;
+        height: 20px;
+        fill: #FFFFFFBF;
+        transition: .3s;
+    }
+
+    &:hover {
+        #{ $this }__text {
+            color: $green;
+        }
+
+        #{ $this }__svg {
+            fill: $green;
+        }
+    }
+}
+
+.messangers {
+    display: flex;
+    gap: clampFluid(23);
+
+    &__icon {
+        width: clampFluid(50);
+        height: clampFluid(50);
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    @media (max-width: 1000px) {
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+}

@@ -1,0 +1,309 @@
+.calendar {
+    position: relative;
+    width: 100%;
+    padding: clampFluid(160) 0;
+
+    @media (max-width: 600px) {
+        padding-top: 0;
+    }
+
+    .title{
+        @include h1;
+        text-align: center;
+        margin-bottom: 2px;
+    }
+
+    .container {
+        @media (max-width: 1100px) {
+            padding: 0;
+        }
+    }
+
+
+    &__bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+
+        @media (max-width: 600px) {
+            display: none;
+        }
+    }
+
+    &__content {
+        display: flex;
+        gap: clampFluid(160);
+
+        @media (max-width: 1100px) {
+            justify-content: center;
+        }
+    }
+
+    &__main {
+        padding-top: clampFluid(71);
+        width: clampFluid(550);
+        margin-left: clampFluid(135);
+        transition: $tr-f;
+        user-select: none;
+
+        @media (max-width: 1100px) {
+            margin-left: 0;
+        }
+
+        @media (max-width: 1100px) {
+            position: absolute;
+            padding-top: 0;
+            margin-left: 0;
+            bottom: clampFluid(265, 220, 320, 1100);
+            background: $main-color;
+            padding: clampFluid(10, 15, 320, 1100) clampFluid(15, 30, 320, 1100);
+            border-radius: 15px;
+            width: auto;
+            border: 1px solid $green;
+            max-width: 100%;
+            z-index: 5;
+            opacity: 0;
+            user-select: none;
+        }
+
+        &.active {
+            user-select: all;
+            opacity: 1;
+        }
+
+        .air-datepicker {
+
+            border-color: transparent;
+
+            .-month- {
+                color: white;
+            }
+
+            .-year- {
+                color: white;
+            }
+
+            .air-datepicker-nav {
+                border-bottom-color: transparent;
+                justify-content: center;
+                margin-bottom: clampFluid(27);
+
+                &--action {
+                    display: none;
+                }
+
+                &--title {
+                    @include h1;
+
+                    &:hover {
+                        background: $green;
+                    }
+
+                    i {
+                        color: white;
+                    }
+                }
+            }
+
+            &-body--cells.-days- {
+                grid-auto-rows: clampFluid(60);
+                gap: clampFluid(20);
+                grid-template-columns: repeat(7, clampFluid(60));
+
+                @media (max-width: 1280px) {
+                    grid-auto-rows: auto;
+                    gap: 0;
+                    grid-template-columns: repeat(7, clampFluid(40, 60, 320, 1280));
+                }
+            }
+
+            width: 100%;
+            height: 100%;
+            background: transparent;
+
+            .-day- {
+                @include h2B;
+                font-size: clampFluid(40);
+                line-height: clampFluid(40);
+                color: #DDDBDB;
+                width: 100%;
+                height: 100%;
+
+                @media (max-width: 1280px) {
+                    font-size: clampFluid(20, 35, 320, 1280);
+                    line-height: clampFluid(20, 35, 320, 1280);
+                }
+            }
+
+            .-weekend- {
+                color: $red;
+            }
+
+            .-focus- {
+                background: $green;
+            }
+
+            .-selected- {
+                background: $green;
+            }
+
+            &-body--day-names {
+                grid-template-columns: repeat(7, clampFluid(60));
+                gap: clampFluid(20);
+
+                @media (max-width: 1280px) {
+                    gap: 0;
+                    grid-template-columns: repeat(7, clampFluid(40, 60, 320, 1280));
+                }
+            }
+
+            .air-datepicker-body--day-name {
+                @include h2B;
+                font-size: clampFluid(40);
+                line-height: clampFluid(40);
+                color: #DDDBDB;
+
+                @media (max-width: 1280px) {
+                    font-size: clampFluid(20, 35, 320, 1280);
+                    line-height: clampFluid(20, 35, 320, 1280);
+                }
+            }
+        }
+    }
+
+
+
+}
+
+.calendar-day {
+    background: white;
+    width: clampFluid(810);
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: 1280px) {
+        width: 594px;
+        max-width: 594px;
+
+    }
+
+    @media (max-width: 600px) {
+        width: 100%;
+        aspect-ratio: 810/712
+    }
+
+    &__response {
+        @media (max-width: 500px) {
+            width: 100%;
+        }
+    }
+
+    &__header {
+        box-shadow: 0px 4px 15px 8px #00000040;
+        background: $red;
+        width: 100%;
+        height: clampFluid(167);
+        display: flex;
+        // padding-top: clampFluid(50);
+        // padding-left: clampFluid(60);
+        gap: clampFluid(89);
+        position: relative;
+    }
+
+    &__header-ofWeek {
+        @include h2B;
+        color: white;
+        position: absolute;
+        top: clampFluid(50);
+        left: clampFluid(60);
+
+        @media (max-width: 1280px) {
+            top: clampFluid(20, 20, 320, 1280);
+            left: clampFluid(15, 20, 320, 1280);
+        }
+    }
+
+    &__header-curDate {
+        @include h2B;
+        font-size: clampFluid(188);
+        line-height: clampFluid(206);
+        position: relative;
+        bottom: clampFluid(-47);
+        color: white;
+        right: clampFluid(30);
+        position: absolute;
+
+        @media (max-width: 1280px) {
+            font-size: 88px;
+            line-height: 96px;
+            bottom: clampFluid(-22, -30, 320, 1280);
+        }
+    }
+
+    &__content {
+        margin-top: clampFluid(50);
+        display: flex;
+        gap: clampFluid(60);
+        margin-right: clampFluid(30);
+        padding-bottom: clampFluid(60);
+
+        @media (max-width: 1100px) {
+            margin-right: 0;
+            margin-top: 0;
+            padding: 15px;
+        }
+
+        @media (max-width: 500px) {
+            flex-direction: column;
+            gap: 10px;
+        }
+    }
+
+    &__img {
+        width: clampFluid(315);
+        height: clampFluid(315);
+        min-width: clampFluid(315);
+        min-height: clampFluid(315);
+    }
+
+
+    &__text {
+        --h1-color: #{$main-color};
+        --other-text-color: #{$main-color};
+        --star-icon: url(#{$black-star});
+        user-select: none;
+    }
+
+    .btn {
+
+        width: clampFluid(351);
+
+        @media (max-width: 1280px) {
+            width: 100%;
+        }
+    }
+
+    &__btn-wrapper {
+        margin: auto auto clampFluid(60);
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        @media (max-width: 1280px) {
+            padding: 0 15px;
+            margin: 0 0 40px 0;
+        }
+    }
+
+
+    &__mob-cal-btn {
+        display: none;
+
+        @media (max-width: 1100px) {
+            display: flex;
+        }
+    }
+}

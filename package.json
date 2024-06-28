@@ -1,0 +1,49 @@
+{
+  "name": "webpack",
+  "version": "1.0.0",
+  "description": "",
+  "private": "true",
+  "scripts": {
+    "build": "cross-env NODE_ENV=production node ./bin/dev.js",
+    "dev": "cross-env NODE_ENV=development node ./bin/dev.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/alpinejs": "^3.13.10",
+    "@types/lodash": "^4.17.0",
+    "@types/lodash-es": "^4.17.12",
+    "@yandex/ymaps3-types": "^0.0.21",
+    "chokidar": "^3.6.0",
+    "cross-env": "^7.0.3",
+    "css-loader": "^7.1.1",
+    "lodash": "^4.17.21",
+    "mini-css-extract-plugin": "^2.8.1",
+    "node-notifier": "^10.0.1",
+    "sass": "^1.75.0",
+    "sass-loader": "^14.2.0",
+    "sharp": "^0.33.3",
+    "style-loader": "^4.0.0",
+    "svgo": "^3.2.0",
+    "svgstore": "^3.0.1",
+    "swc-loader": "^0.2.6",
+    "webpack": "^5.91.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-manifest-plugin": "^5.0.0"
+  },
+  "dependencies": {
+    "@alpinejs/intersect": "^3.14.0",
+    "@alpinejs/mask": "^3.14.0",
+    "@fancyapps/ui": "^5.0.36",
+    "air-datepicker": "^3.5.3",
+    "alpinejs": "^3.13.10",
+    "htmx.org": "^1.9.12",
+    "ky": "^1.2.4",
+    "maska": "^2.1.11",
+    "micromodal": "^0.4.10",
+    "overlayscrollbars": "^2.8.3",
+    "swiper": "^11.1.1"
+  },
+  "browserslist": "> 0.9%, last 4 versions, iOS 14, not dead"
+}

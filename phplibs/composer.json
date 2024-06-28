@@ -1,0 +1,15 @@
+{
+    "require": {
+        "vlucas/valitron": "^1.4",
+        "phpmailer/phpmailer": "^6.9.1",
+        "kint-php/kint": "^5.1"
+    },
+    "config": {
+        "platform": {
+            "php": "7.4.29"
+        }
+    },
+    "autoload": {
+        "psr-4": {"Placestart\\": "src/"}
+    }
+}

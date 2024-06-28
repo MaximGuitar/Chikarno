@@ -1,0 +1,131 @@
+.order{
+    margin-top: clampFluid(60);
+    .title{
+        margin-bottom: clampFluid(60);
+        @include h1;
+    }
+
+    .grid{
+        display: grid;
+        grid-template-columns: 57.55% 1fr;
+        gap: clampFluid(170);
+    }
+
+    .submit-btn{
+        margin-top: clampFluid(40);
+    }
+
+    .block{
+        padding: clampFluid(40) clampFluid(45) clampFluid(40) clampFluid(60);
+        background: #fff;
+        &.bottom-offset{
+            margin-bottom: clampFluid(10);
+        }
+    }
+
+    .block-title{
+        margin-bottom: clampFluid(30);
+        @include h3;
+        color: $main-color;
+    }
+
+    .block-info{
+        margin-top: clampFluid(30);
+        --other-text-color: #{$main-color};
+    }
+
+    .total-col{
+        position: relative;
+        .paint{
+            width: clampFluid(250);
+            height: clampFluid(600);
+            position: absolute;
+            right: 0;
+            top: clampFluid(120);
+            transform: translate(60%, 0);
+            z-index: -1;
+        }
+    }
+
+    .total-info{
+        .bottom{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: clampFluid(30) clampFluid(45) clampFluid(30) clampFluid(60);
+            background: $green;
+        }
+
+        .total-price{
+            @include p1;
+        }
+
+        .summ{
+            @include h5;
+        }
+    }
+    
+    .block-error{
+        margin-bottom: clampFluid(30);
+        @include p1;
+        color: $red;
+    }
+
+    .cart-items{
+        display: grid;
+        gap: clampFluid(10);
+        grid-template-columns: 100%;
+    }
+
+    .choice-row{
+        display: flex;
+        gap: clampFluid(40);
+    }
+
+    .inputs-grid{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap: clampFluid(30) clampFluid(50);
+    }
+
+    .input-name{
+        color: $main-color;
+    }
+
+    .dop-info{
+        .comment{
+            grid-column: span 3;
+        }
+    }
+
+    .success-message{
+        @include h3;
+    }
+
+    @media (max-width: 1279px){
+        .grid{
+            grid-template-columns: 100%;
+            gap: 20px;
+        }
+
+        .left-col{
+            grid-row: 2/3;
+        }
+
+        .block{
+            padding: 30px 20px;
+        }
+    }
+
+    @media (max-width: 768px){
+        .inputs-grid{
+            grid-template-columns: 1fr;
+        }
+
+        .dop-info{
+            .comment{
+                grid-column: auto;
+            }
+        }
+    }
+}

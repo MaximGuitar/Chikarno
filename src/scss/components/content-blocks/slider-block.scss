@@ -1,0 +1,48 @@
+.slider-block {
+    position: relative;
+    margin-bottom: clampFluid(70, 160);
+
+    .highlite--green {
+        height: clampFluid(685);
+        width: clampFluid(352);
+        right: clampFluid(515);
+        top: clampFluid(22);
+        filter: blur(150px);
+        z-index: 1;
+    }
+
+    &__slide {
+        aspect-ratio: 1/1;
+    }
+
+    &__swiper-control {
+        margin-top: clampFluid(21, 60);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: clampFluid(23, 125, 320, 1920);
+
+    }
+
+    &__callback {
+        width: fit-content;
+
+        .mob {
+            display: none;
+
+            @media (max-width: 600px) {
+                display: flex;
+            }
+        }
+
+        .desc {
+
+            display: flex;
+
+            @media (max-width: 600px) {
+                display: none;
+            }
+        }
+    }
+
+}

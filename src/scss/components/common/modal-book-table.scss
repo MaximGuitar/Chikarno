@@ -1,0 +1,18 @@
+.modal-book-table{
+    .title{
+        margin-bottom: clampFluid(30);
+        @include h1;
+        color: $main-color;
+    }
+    .text{
+        margin-bottom: clampFluid(40);
+        @include p1;
+        color: $main-color;
+    }
+
+    @media (max-width: 575px){
+        .title{
+            width: 80%;
+        }
+    }
+}

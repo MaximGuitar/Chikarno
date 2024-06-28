@@ -1,0 +1,109 @@
+.about-person {
+    margin-bottom: clampFluid(70, 325);
+
+    &__img {
+        min-width: clampFluid(165, 670, 320, 1920);
+        min-height: clampFluid(294, 970, 320, 1920);
+        border-radius: 60px;
+        box-shadow: 15px 15px 50px 25px rgba(0, 0, 0, 0.35);
+        position: relative;
+
+        @media (max-width: 768px) {
+            min-width: clampFluid(165, 294, 320, 768);
+            aspect-ratio: 165/294;
+            width: clampFluid(165, 294, 320, 768);
+            border-radius: 16px;
+        }
+    }
+
+    &__content {
+        display: flex;
+        gap: clampFluid(170);
+
+        @media (max-width: 1280px) {
+            gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+
+        }
+    }
+
+    &__main-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 60px;
+
+        @media (max-width: 768px) {
+            border-radius: 16px;
+        }
+    }
+
+
+
+    &__text {
+        .title {
+            p {
+
+
+                @include h1;
+                margin-bottom: clampFluid(17, 40);
+            }
+        }
+    }
+
+    .green-leo {
+        width: clampFluid(1200);
+        height: clampFluid(400);
+        bottom: clampFluid(-165);
+        left: clampFluid(577);
+        position: absolute;
+        z-index: -1;
+
+        @media (max-width: 1280px) {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            display: block;
+            width: clampFluid(220, 600, 320, 768);
+            height: clampFluid(200, 300, 320, 768);
+            right: clampFluid(-140, -450, 320, 768);
+            top: clampFluid(100, 245, 320, 768);
+            left: unset;
+            bottom: unset;
+        }
+    }
+
+    &__decor {
+        position: absolute;
+        width: clampFluid(800);
+        height: clampFluid(400);
+        right: clampFluid(-865);
+        bottom: clampFluid(-125);
+
+        @media (max-width: 1025px) {
+            bottom: unset;
+            top: -110px;
+            rotate: -22deg;
+            z-index: 5;
+            display: block;
+        }
+
+        @media (max-width: 1280px) {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            width: 200px;
+            height: 100px;
+            display: block;
+            right: -120px;
+            top: -10px;
+            left: unset;
+            bottom: unset;
+        }
+    }
+}

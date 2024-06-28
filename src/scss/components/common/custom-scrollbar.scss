@@ -1,0 +1,25 @@
+.custom-scrollbar {
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  &__wrap {
+    height: 100%;
+  }
+  &__container {
+    height: 100%;
+  }
+  &__content {
+    padding: 0 clampFluid(24) 0 0;
+  }
+  .os-scrollbar {
+    --os-size: 6px;
+    --os-handle-bg: #00B590;
+    --os-track-bg: #F8F8F8;
+    --os-handle-border-radius: 0;
+    --os-track-border-radius: 0;
+  }
+  .os-scrollbar.os-scrollbar-vertical.os-scrollbar-cornerless,
+  .os-scrollbar.os-scrollbar-vertical.os-scrollbar-cornerless.os-scrollbar-rtl {
+    bottom: clampFluid(25);
+  }
+}

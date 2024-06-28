@@ -1,0 +1,62 @@
+.cart-item{
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    padding: clampFluid(10);
+    background: #F8F8F8;
+    .delete{
+        position: absolute;
+        top: 0;
+        right: 0;
+        &-btn{
+            padding: clampFluid(10) clampFluid(10) clampFluid(20) clampFluid(20);
+            background: transparent;
+            border: 0;
+        }
+    
+        .icon{
+            display: block;
+            width: clampFluid(15);
+            height: clampFluid(15);
+            fill: $main-color;
+        }
+    }
+    .picture{
+        width: clampFluid(120);
+        height: clampFluid(120);
+        flex: 0 0 auto;
+        object-fit: cover;
+    }
+    .name{
+        @include p1;
+        color: $main-color;
+    }
+    .info{
+        flex: 1 1 40%;
+        padding: 0 clampFluid(60) 0 clampFluid(17);
+    }
+    .weight{
+        margin: clampFluid(10) 0 0;
+        @include p3;
+        color: $main-color;
+    }
+    .price-row{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex: 0 0 100%;
+        margin-top: clampFluid(15);
+    }
+    .price{
+        @include h6;
+        color: $red;
+    }
+    .count{
+        @include p2;
+        color: $main-color;
+    }
+    .count-input{
+        position: relative;
+        z-index: 1;
+    }
+}

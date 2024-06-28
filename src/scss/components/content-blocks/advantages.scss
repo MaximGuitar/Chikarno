@@ -1,0 +1,133 @@
+.advantages {
+    padding-bottom: clampFluid(168);
+    margin-bottom: clampFluid(200);
+    position: relative;
+
+    @media (max-width: 1025px) {
+        margin-bottom: clampFluid(200,500,320,1025);
+    }
+
+    &__decor {
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+
+    &__content {
+        position: relative;
+    }
+
+    &__title {
+        @include h1;
+        margin-bottom: clampFluid(40);
+
+    }
+
+    &__container {
+        position: relative;
+        padding-top: clampFluid(54);
+        padding-left: clampFluid(13);
+    }
+}
+
+.advantages-list {
+
+    width: clampFluid(700);
+    columns: 3;
+    column-gap: clampFluid(40);
+
+    @media (max-width: 1025px) {
+        width: 100%;
+        columns: 2;
+    }
+
+    &__booking-wrapper {
+        position: absolute;
+        bottom: clampFluid(-143);
+        left: clampFluid(712);
+        z-index: 1;
+
+        @media (max-width: 1025px) {
+            bottom: clampFluid(-260,-500,320,1025);
+            left: clampFluid(50,474,320,1025);
+        }
+    }
+
+    &__booking {
+        width: clampFluid(337);
+        aspect-ratio: 1/1;
+        z-index: 2;
+        border-radius: 50%;
+
+        p {
+            @include h2B;
+            color: white;
+            text-align: center
+        }
+
+        @media (max-width: 1025px) {
+            width: clampFluid(168, 224, 320, 1025);
+            
+        }
+    }
+
+    &__item {
+        &:nth-child(2) {
+            .advantages-list__item-img {
+                opacity: 1;
+            }
+        }
+
+        &:hover {
+            p {
+                color: $red;
+                cursor: pointer;
+            }
+
+            .advantages-list__item-img {
+                opacity: 1;
+            }
+        }
+
+        p {
+            @include p1;
+            margin-bottom: clampFluid(40);
+        }
+
+
+    }
+
+    &__item-img {
+        width: clampFluid(800);
+        height: clampFluid(800);
+        position: absolute;
+        border-radius: 50%;
+        overflow: hidden;
+        top: clampFluid(-116);
+        right: 10px;
+        opacity: 0;
+        transition: $tr-f;
+
+        @media (max-width: 1025px) {
+            top: clampFluid(486, 400, 320, 1025);
+            width: clampFluid(211, 530, 320, 1025);
+            height: clampFluid(211, 530, 320, 1025);
+        }
+
+    }
+
+    &__decor {
+        width: clampFluid(248);
+        height: clampFluid(601);
+        bottom: clampFluid(-363);
+        left: clampFluid(-122);
+        position: absolute;
+        z-index: -2;
+
+        @media (max-width: 1025px) {
+            display: none;
+        }
+    }
+
+}

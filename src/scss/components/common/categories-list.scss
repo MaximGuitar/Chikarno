@@ -1,0 +1,18 @@
+.categories-list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: clampFluid(20);
+    &__item{
+        flex: 0 0 auto;
+        @include p1;
+        &.active{
+            color: $green;
+            text-decoration: underline;
+        }
+    }
+
+    @media (max-width: 500px){
+        flex-wrap: nowrap;
+        overflow: auto;
+    }
+}

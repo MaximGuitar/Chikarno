@@ -1,0 +1,59 @@
+.page-head{
+    height: clampFluid(500);
+    position: relative;
+    overflow: hidden;
+
+    &.auto-height{
+        height: auto;
+    }
+
+    .bg{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .grid{
+        display: grid;
+        grid-template-columns: 40% 1fr;
+    }
+
+    .text-col{
+        margin: clampFluid(60) 0;
+        .btn{
+            margin-top: clampFluid(60);
+        }
+    }
+
+    .img-col{
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 50%;
+        height: 100%;
+        .paint{
+            position: absolute;
+            top: 12%;
+            left: 0;
+            width: clampFluid(250);
+            height: clampFluid(600);
+            transform: translate(-60%, 0);
+        }
+    }
+
+    @media (max-width: 600px){
+        .grid{
+            grid-template-columns: 1fr;
+        }
+        .img-col{
+            width: auto;
+            height: auto;
+            aspect-ratio: 1/1;
+            position: relative;
+            margin: clampFluid(-15, -30, 375, 1280);
+        }
+    }
+}

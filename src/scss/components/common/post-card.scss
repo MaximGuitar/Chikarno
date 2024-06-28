@@ -1,0 +1,13 @@
+.post-card{
+    .img{
+        width: 100%;
+        margin-bottom: clampFluid(17);
+        aspect-ratio: 1/1;
+    }
+    .title{
+        @include h3;
+    }
+    .content-text{
+        margin-top: clampFluid(20);
+    }
+}

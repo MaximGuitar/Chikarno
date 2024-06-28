@@ -1,0 +1,1 @@
+<p class="summ"><?= $args["price"] ?> Р</p>

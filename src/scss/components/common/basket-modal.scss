@@ -1,0 +1,95 @@
+.basket-modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 101;
+    overflow: hidden;
+    background: rgba(#000, .5);
+
+    &:not(.open){
+        display: none;
+    }
+
+    .close-modal{
+        width: clampFluid(30);
+        height: clampFluid(30);
+        position: absolute;
+        top: clampFluid(66);
+        right: clampFluid(50);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: $red;
+        border-radius: 50%;
+        border: 0;
+        .icon{
+            width: clampFluid(14);
+            height: clampFluid(14);
+            fill: #fff;
+        }
+    }
+
+    .basket-wrap{
+        display: flex;
+        flex-direction: column;
+        margin-left: auto;
+        width: 545px;
+        height: 100%;
+        background: #fff;
+    }
+
+    .middle{
+        height: 100px;
+        padding-right: clampFluid(20);
+        padding-left: clampFluid(50);
+        flex-grow: 1;
+    }
+
+    .top{
+        position: relative;
+        padding: clampFluid(60) clampFluid(50) clampFluid(30);
+    }
+
+    .title{
+        @include h2B;
+        text-align: center;
+    }
+
+    .bottom{
+        display: flex;
+        padding: clampFluid(40) clampFluid(50);
+        justify-content: space-between;
+        background: $green;
+
+        .price{
+            color: #fff;
+            @include h6;
+        }
+        .order-link{
+            display: flex;
+            @include h6;
+            img{
+                width: clampFluid(38);
+                height: clampFluid(24);
+                margin-left: clampFluid(8);
+            }
+        }
+    }
+    .cart-content{
+        display: flex;
+        flex-direction: column;
+        gap: clampFluid(10);
+        padding-bottom: clampFluid(30);
+    }
+
+    @media (max-width: 767px){
+        .basket-wrap{
+            width: 100%;
+        }
+        .middle{
+            padding-left: clampFluid(20,30,320,767);
+        }
+    }
+}

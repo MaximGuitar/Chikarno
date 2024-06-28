@@ -1,0 +1,30 @@
+.category-section{
+    padding-top: clampFluid(60);
+    &__title{
+        margin-bottom: clampFluid(60);
+        @include h1;
+    }
+    &__grid{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        gap: clampFluid(80) clampFluid(30);
+    }
+
+    @media (max-width: 991px){
+        &__grid{
+            grid-template-columns: repeat(3,1fr);
+        }   
+    }
+
+    @media (max-width: 767px){
+        &__grid{
+            grid-template-columns: repeat(2,1fr);
+        }   
+    }
+
+    @media (max-width: 375px){
+        &__grid{
+            grid-template-columns: 1fr;
+        }   
+    }
+}

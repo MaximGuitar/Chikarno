@@ -1,0 +1,15 @@
+.count-input{
+    display: flex;
+    @include p2;
+    color: $main-color;
+    .minus, .plus{
+        background: transparent;
+        border: 0;
+    }
+    .minus{
+        padding-right: clampFluid(10);
+    }
+    .plus{
+        padding-left: clampFluid(10);
+    }
+}

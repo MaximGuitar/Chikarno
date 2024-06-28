@@ -1,0 +1,6 @@
+.other-products-section{
+    .title{
+        margin-bottom: clampFluid(30);
+        @include h1;
+    }
+}

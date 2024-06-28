@@ -1,0 +1,125 @@
+@import '@/scss/includes/variables';
+@import '@/scss/includes/mixins';
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 12;
+
+    &.is-open {
+        display: block;
+    }
+
+    &__overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 15vh 0 0;
+        overflow: auto;
+        background: rgba(#000, 0.5);
+    }
+
+    &__close {
+        position: absolute;
+        top: clampFluid(30,15);
+        right: clampFluid(30,15);
+        padding: clampFluid(8);
+        z-index: 2;
+        cursor: pointer;
+        border: 0;
+        background: var(--close-bg-color);
+        border-radius: 50%;
+
+        .icon {
+            display: block;
+            width: clampFluid(14,9);
+            height: clampFluid(14,9);
+            pointer-events: none;
+            fill: var(--close-icon-color);
+        }
+    }
+
+    &__container {
+        width: 100%;
+        margin: 0 auto;
+        position: relative;
+        background: var(--container-bg-color);
+        max-width: var(--container-width);
+    }
+
+    &[aria-hidden="false"] {
+        .modal {
+            &__overlay {
+                animation: mmfadeIn $tr cubic-bezier(0, 0, 0.2, 1);
+            }
+
+            &__container {
+                animation: mmslideIn $tr cubic-bezier(0, 0, 0.2, 1);
+            }
+        }
+    }
+
+    &[aria-hidden="true"] {
+        .modal {
+            &__overlay {
+                animation: mmfadeOut $tr cubic-bezier(0, 0, 0.2, 1);
+            }
+
+            &__container {
+                animation: mmslideOut $tr cubic-bezier(0, 0, 0.2, 1);
+            }
+        }
+    }
+
+    @media (max-width: 575px) {
+        &__container {
+            max-width: 100% !important;
+        }
+    }
+}
+
+@keyframes mmfadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes mmfadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes mmslideIn {
+    from {
+        transform: translateY(15%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes mmslideOut {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-10%);
+    }
+}

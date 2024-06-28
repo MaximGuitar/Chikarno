@@ -1,0 +1,22 @@
+.breadcrumbs{
+    position: relative;
+    z-index: 1;
+    padding-top: clampFluid(30);
+    .list{
+        color: #fff;
+        li{
+            display: inline-block;
+            a{
+                color: #fff;
+            }
+            &:last-child{
+                span{
+                    color: $red;
+                }
+            }
+            &:not(:first-child){
+                margin-left: clampFluid(5);
+            }
+        }
+    }
+}

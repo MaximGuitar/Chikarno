@@ -1,0 +1,1 @@
+<span data-total-cart-price hx-swap-oob="outerHTML: [data-total-cart-price]"><?= $args["price"] ?> Р</span>

@@ -1,0 +1,207 @@
+@use "sass:math";
+
+@function clampFluid($clamp-min, $clamp-max: 'None', $calc-1: 'None', $calc-2: 'None', $w-min: 'None', $w-max: 'None') {
+	@if $clamp-max =='None' {
+		$clamp-max: $clamp-min;
+		$clamp-min: $clamp-max * math.div(2, 3);
+	}
+
+	;
+	$clamp-min-rend: 'None';
+	$clamp-max-rend: 'None';
+	$w: math.div($clamp-max, 1920) * 100 * 1vw;
+
+	//     @if $clamp-min == 0{
+	//         $clamp-min: 0.001;
+	//     }
+	//     @if $clamp-max == 0{
+	//         $clamp-max-rend: 0.001;
+	//     }
+	@if $clamp-max < $clamp-min {
+		$clamp-min-rend: $clamp-max * 1px;
+		$clamp-max-rend: $clamp-min * 1px;
+	}
+
+	@else {
+		$clamp-max-rend: $clamp-max * 1px;
+		$clamp-min-rend: $clamp-min * 1px;
+	}
+
+	@if $calc-1 =='None' {
+		@return clamp($clamp-min-rend, $w, $clamp-max-rend);
+	}
+
+	;
+
+	@if $w-min =='None' {
+		$k: math.div(($clamp-max - $clamp-min), ($calc-2 - $calc-1));
+		$b: $clamp-min - $k * $calc-1;
+		$b: $b * 1px;
+		@return clamp($clamp-min-rend, calc(#{$k} * 100vw + #{$b}), $clamp-max-rend);
+	}
+
+	;
+
+	@if $w-max !='None' {
+		$k: math.div(($calc-2 - $calc-1), ($w-max - $w-min));
+		$b: $calc-1 - $k * $w-min;
+		$b: $b * 1px;
+		@return clamp($clamp-min-rend, calc(#{$k} * 100vw + #{$b}), $clamp-max-rend);
+	}
+}
+
+// Работает на ПК как обычный hover, а на мобилке как active и анимация не зависает, как будто она в hover
+@mixin hover {
+
+	@media (hover: hover) {
+		&:hover {
+			@content;
+		}
+	}
+
+	@media (hover: none),
+	(hover: on-demand) {
+
+		// применяются на устройствах, не поддерживающих наведение или поддерживающих его по запросу, что характерно для тачскринов
+		&:active {
+			@content;
+		}
+	}
+}
+
+
+
+
+
+// General fonts
+@mixin h1 {
+	color: $color-text;
+	font-size: clampFluid(60);
+	line-height: clampFluid(66);
+	font-family: "centuryGothic",  sans-serif;
+	font-weight: 400;
+
+	@media (max-width: 1280px) {
+		font-size: clampFluid(28, 60, 320, 1280);
+		line-height: clampFluid(30, 66, 320, 1280);
+	}
+}
+
+@mixin h2 {
+	color: $color-text;
+	font-size: clampFluid(48);
+	line-height: clampFluid(43);
+	font-family: "SpriteS", sans-serif;
+	font-weight: 400;
+
+	@media (max-width: 1280px) {
+		font-size: clampFluid(24, 48, 320, 1280);
+		line-height: clampFluid(21, 43, 320, 1280);
+	}
+}
+
+@mixin h2B {
+	color: $main-color;
+	font-size: clampFluid(48);
+	line-height: clampFluid(43);
+	font-family: "SpriteR", sans-serif;
+	font-weight: 400;
+
+	@media (max-width: 1280px) {
+		font-size: clampFluid(24, 48, 320, 1280);
+		line-height: clampFluid(21, 43, 320, 1280);
+	}
+}
+
+@mixin h3 {
+	color: $color-text;
+	font-size: clampFluid(40);
+	line-height: clampFluid(44);
+	font-family: "centuryGothic",  sans-serif;
+	font-weight: 400;
+
+	@media (max-width: 1280px) {
+		font-size: clampFluid(22, 40, 320, 1280);
+		line-height: clampFluid(26, 44, 320, 1280);
+	}
+}
+
+@mixin h4 {
+	color: $color-text;
+	font-size: clampFluid(40);
+	line-height: clampFluid(48);
+	font-family: "SpriteR", sans-serif;
+	font-weight: 400;
+
+	@media (max-width: 1280px) {
+		font-size: clampFluid(20, 40, 320, 1280);
+		line-height: clampFluid(24, 48, 320, 1280);
+	}
+}
+
+@mixin h5 {
+	color: $color-text;
+	font-size: clampFluid(32);
+	line-height: clampFluid(41);
+	font-family: "IsamiRi", sans-serif;
+	font-weight: 400;
+
+	@media (max-width: 1280px) {
+		font-size: clampFluid(18, 32, 320, 1280);
+		line-height: clampFluid(23, 41, 320, 1280);
+	}
+}
+
+@mixin h6 {
+	color: $color-text;
+	font-size: clampFluid(20);
+	line-height: clampFluid(24);
+	font-family: "IsamiRi", sans-serif;
+	font-weight: 400;
+
+	@media (max-width: 1280px) {
+		font-size: clampFluid(14, 20, 320, 1280);
+		line-height: clampFluid(16, 24, 320, 1280);
+	}
+}
+
+
+@mixin p1 {
+	color: $color-text;
+	font-size: clampFluid(20);
+	line-height: 1.4;
+	font-family: "centuryGothic",  sans-serif;
+	font-weight: 400;
+
+	@media (max-width: 1280px) {
+		font-size: clampFluid(14, 20, 320, 1280);
+		line-height: clampFluid(19, 28, 320, 1280);
+	}
+}
+
+
+@mixin p2 {
+	color: $color-text;
+	font-size: clampFluid(16);
+	line-height: 1.2;
+	font-family: "centuryGothic",  sans-serif;
+	font-weight: 400;
+
+	@media (max-width: 1280px) {
+		font-size: clampFluid(12, 16, 320, 1280);
+		line-height: clampFluid(16, 19, 320, 1280);
+	}
+}
+
+@mixin p3 {
+	color: $color-text;
+	font-size: clampFluid(12);
+	line-height: 1.2;
+	font-family: "centuryGothic",  sans-serif;
+	font-weight: 400;
+
+	@media (max-width: 1280px) {
+		font-size: clampFluid(12, 12, 320, 1280);
+		line-height: clampFluid(12, 14, 320, 1280);
+	}
+}

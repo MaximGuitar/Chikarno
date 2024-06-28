@@ -1,0 +1,60 @@
+.text-page {
+    --h1-color: #fff;
+    --other-text-color: #{rgba($color: #fff, $alpha: .65)};
+
+    // Размер шрифта заголовка h1
+    --h1-font-size: #{clampFluid(30, 60, 320, 1920)};
+    // Размер шрифта заголовка h2
+    --h2-font-size: #{clampFluid(40)};
+    // Размер шрифта заголовка h3
+    --h3-font-size: #{clampFluid(32)};
+    // Размер шрифта заголовка h4
+    --h4-font-size: #{clampFluid(24)};
+    // Размер шрифта p и li
+    --text-font-size: #{clampFluid(14, 20, 320, 1920)};
+    // Размер шрифта подписей в галерее
+    --caption-font-size: #{clampFluid(14)};
+    --gallery-item-aspect-ratio: 4/3;
+
+    //Отступ после заголовка h1
+    --title-margin-bottom: #{clampFluid(40)};
+    //Отступ после заголовков h2,h3,h4
+    --heading-margin-bottom: #{clampFluid(20)};
+    //Отступ перед всеми заголовками
+    --heading-margin-top: #{clampFluid(50)};
+    //Отступ после p
+    --text-margin-bottom: #{clampFluid(20)};
+    //Отступ после li
+    --li-margin-bottom: #{clampFluid(10)};
+    //Отступ после блоков текстовой страницы
+    --content-block-margin-bottom: #{clampFluid(80)};
+    //Промежуток между элементами в галлерее
+    --gallery-grid-gap: #{clampFluid(15)};
+
+    //Скругление углов всех изображений
+    --img-border-radius: 0;
+
+    //Цвет посещенной ссылки
+    --visited-link-color: #653465;
+    //Цвет границы заголовка с подчеркиванием
+    --title-underline-border-color: currentColor;
+    --star-icon: url(#{$white-star});
+    
+
+    ul{
+        padding-left: 0;
+        li{
+            list-style: none;
+            &::before{
+                content: "";
+                width: clampFluid(23);
+                height: clampFluid(23);
+                display: inline-block;
+                vertical-align: middle;
+                margin-right: clampFluid(10);
+                background: transparent center/cover no-repeat;
+                background-image: var(--star-icon);
+            }
+        }
+    }
+}

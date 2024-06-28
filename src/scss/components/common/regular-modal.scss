@@ -1,0 +1,20 @@
+.regular-modal{
+    --container-bg-color: #fff;
+    --container-width: 930px;
+    --close-bg-color: #{$red};
+    --close-icon-color: #fff;
+
+    .modal{
+        &__container{
+            padding: clampFluid(50) clampFluid(60) clampFluid(60);
+        }
+    }
+
+    @media (max-width: 575px){
+        .modal{
+            &__container{
+                padding: clampFluid(50, 30) clampFluid(60, 15) clampFluid(60,24);
+            }
+        }   
+    }
+}

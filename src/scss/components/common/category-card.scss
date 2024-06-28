@@ -1,0 +1,15 @@
+.category-card{
+    position: relative;
+    .name{
+        @include h3;
+    }
+    .img{
+        width: 100%;
+        margin-bottom: clampFluid(17);
+        aspect-ratio: 1/1;
+        object-fit: cover;
+    }
+    .no-img{
+        background: #aaa;
+    }
+}

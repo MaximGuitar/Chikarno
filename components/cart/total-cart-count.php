@@ -1,0 +1,1 @@
+<span data-total-cart-count hx-swap-oob="outerHTML: [data-total-cart-count]"><?= $args["count"] ?></span>
